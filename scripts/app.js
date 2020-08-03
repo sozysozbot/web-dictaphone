@@ -57,7 +57,7 @@ if (navigator.getUserMedia) {
            var clipName = select.options[select.selectedIndex].value;
            const index = select.selectedIndex;
            select.selectedIndex += 1;
-           var cleaned_clipname = clipName.replace(/[.?! ]/g, " ").split(" ").filter(a => a.length >= 1).join("_");
+           var cleaned_clipname = clipName.replace(/[.?!"() ]/g, " ").split(" ").filter(a => a.length >= 1).join("_");
 
       	   var clipContainer = document.createElement('article');
       	   var clipLabel = document.createElement('p');
