@@ -69,6 +69,26 @@ button {
     border: none;
 }
 
+button.danger {
+  background: #ff0000;
+  background: linear-gradient(to bottom,  #ff0000 0%,#cc0000 100%); 
+  text-shadow: 1px 1px 1px black;  
+  text-align: center;
+  color: white;
+  border: none;
+}
+
+a.button {
+  -webkit-appearance: button;
+  cursor: pointer;
+  background: #0088cc;
+  background: linear-gradient(to bottom,  #0088cc 0%,#0055cc 100%); 
+  text-shadow: 1px 1px 1px black;  
+  text-align: center;
+  color: white;
+  border: none;
+}
+
 aside button, .main-controls button {    
     width: 90%;
     margin: 1rem auto 0.5rem;
@@ -129,16 +149,6 @@ aside p {
 
 input[type=checkbox]:checked ~ aside {
   transform: translateX(0);
-}
-
-/* || Link styles */
-
-a {
-  color: #aaa;	
-}
-
-a:hover, a:focus {
-  text-decoration: none;
 }
 
 /* audio styling */

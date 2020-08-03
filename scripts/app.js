@@ -59,23 +59,33 @@ if (navigator.getUserMedia) {
       	   var clipLabel = document.createElement('p');
            var audio = document.createElement('audio');
            var deleteButton = document.createElement('button');
+           deleteButton.classList.add("danger");
+           var downloadlink = document.createElement('a');
+           downloadlink.classList.add("button");
            
            clipContainer.classList.add('clip');
            audio.setAttribute('controls', '');
            deleteButton.innerHTML = "Delete";
-           clipLabel.innerHTML = clipName;
-
-           clipContainer.appendChild(audio);
-           clipContainer.appendChild(clipLabel);
-           clipContainer.appendChild(deleteButton);
-           soundClips.appendChild(clipContainer);
 
            var audioURL = window.URL.createObjectURL(e.data);
            audio.src = audioURL;
 
+           downloadlink.href = audioURL;
+           downloadlink.download = '作ったファイル.oga';
+           downloadlink.innerText = 'Download';
+           clipLabel.innerHTML = clipName;
+
+           clipContainer.appendChild(audio);
+           clipContainer.appendChild(clipLabel);
+           clipContainer.appendChild(downloadlink);
+           clipContainer.appendChild(deleteButton);
+           soundClips.appendChild(clipContainer);
+
            deleteButton.onclick = function(e) {
-             evtTgt = e.target;
-             evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+             if (window.confirm("Do you really want to delete this file?")) {
+              evtTgt = e.target;
+              evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+             }
            }
       	 }
       },
