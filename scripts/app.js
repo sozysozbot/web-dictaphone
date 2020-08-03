@@ -53,7 +53,11 @@ if (navigator.getUserMedia) {
       	 mediaRecorder.ondataavailable = function(e) {
            console.log("data available");
 
-           var clipName = prompt('Enter a name for your sound clip');
+           var select = document.getElementById('which_sentence');
+           var clipName = select.options[select.selectedIndex].value;
+           const index = select.selectedIndex;
+           select.selectedIndex += 1;
+           var cleaned_clipname = clipName.replace(/[.?! ]/g, " ").split(" ").filter(a => a.length >= 1).join("_");
 
       	   var clipContainer = document.createElement('article');
       	   var clipLabel = document.createElement('p');
@@ -71,7 +75,7 @@ if (navigator.getUserMedia) {
            audio.src = audioURL;
 
            downloadlink.href = audioURL;
-           downloadlink.download = '作ったファイル.oga';
+           downloadlink.download = `${cleaned_clipname}.oga`;
            downloadlink.innerText = 'Download';
            clipLabel.innerHTML = clipName;
 
@@ -82,9 +86,11 @@ if (navigator.getUserMedia) {
            soundClips.appendChild(clipContainer);
 
            deleteButton.onclick = function(e) {
+             
              if (window.confirm("Do you really want to delete this file?")) {
               evtTgt = e.target;
               evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+              select.selectedIndex = index;
              }
            }
       	 }
