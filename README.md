@@ -1,3 +1,7 @@
+## これはなに
+[Spoonfed Pekzep](https://docs.google.com/spreadsheets/d/1WrKg-g26ZugYfwKEuTEWEGg4oyeb7sl6DGJ4hcWuOho/)の録音を[SY](https://twitter.com/S_Y15)がするためのツール。録音は[ここ](http://jurliyuuri.github.io/spoonfed_pekzep/index.html)から聴くことができる。
+
+## original documentation:
 A sample MDN app that uses getUserMedia and MediaRecorder API for recording audio snippets, and The Web Audio API for visualizations.
 
 Documentation:
